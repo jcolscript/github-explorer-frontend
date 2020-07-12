@@ -5,7 +5,7 @@ import api from '../../services/api';
 
 import logo from '../../assets/images/logo.svg';
 
-import { Title, Form, Users } from './styles';
+import { Title, Form, Users, Error } from './styles';
 
 interface IUsers {
   login: string;
@@ -20,6 +20,7 @@ interface IUsers {
 
 const Dashboard: React.FC = () => {
   const [users, setUsers] = useState<IUsers[]>([]);
+  const [inputError, setIputError] = useState('');
   const [newUser, setNewUser] = useState('');
 
   async function handleAddUser(
@@ -27,17 +28,27 @@ const Dashboard: React.FC = () => {
   ): Promise<void> {
     event.preventDefault();
 
-    const { data } = await api.get<IUsers>(`users/${newUser}`);
+    if (!newUser) {
+      setIputError('Digite o nome de usuario!');
+      return;
+    }
 
-    setUsers([...users, data]);
-    setNewUser('');
+    try {
+      const { data } = await api.get<IUsers>(`users/${newUser}`);
+
+      setUsers([...users, data]);
+      setNewUser('');
+      setIputError('');
+    } catch (error) {
+      setIputError('Erro ao buscar por esse usuario!');
+    }
   }
 
   return (
     <>
       <img src={logo} alt="GitHub Explorer" />
       <Title>Explore repositórios no Github.</Title>
-      <Form onSubmit={handleAddUser}>
+      <Form hasError={!!inputError} onSubmit={handleAddUser}>
         <input
           type="text"
           placeholder="Digite aqui o username"
@@ -46,6 +57,7 @@ const Dashboard: React.FC = () => {
         />
         <button type="submit">Pesquisar</button>
       </Form>
+      {inputError && <Error>{inputError}</Error>}
       <Users>
         {users.map(user => (
           <a href="teste" key={user.id}>
