@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useState, useEffect } from 'react';
 import { FiChevronRight } from 'react-icons/fi';
 
 import api from '../../services/api';
@@ -19,9 +19,22 @@ interface IUsers {
 }
 
 const Dashboard: React.FC = () => {
-  const [users, setUsers] = useState<IUsers[]>([]);
+  const [users, setUsers] = useState<IUsers[]>(() => {
+    const usersLocalStorage = localStorage.getItem('@GHE:users');
+
+    if (usersLocalStorage) {
+      return JSON.parse(usersLocalStorage);
+    } else {
+      return [];
+    }
+  });
+
   const [inputError, setIputError] = useState('');
   const [newUser, setNewUser] = useState('');
+
+  useEffect(() => {
+    localStorage.setItem('@GHE:users', JSON.stringify(users));
+  }, [users]);
 
   async function handleAddUser(
     event: FormEvent<HTMLFormElement>,
