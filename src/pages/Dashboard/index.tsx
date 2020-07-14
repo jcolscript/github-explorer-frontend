@@ -1,5 +1,6 @@
 import React, { FormEvent, useState, useEffect } from 'react';
 import { FiChevronRight } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 import api from '../../services/api';
 
@@ -73,14 +74,14 @@ const Dashboard: React.FC = () => {
       {inputError && <Error>{inputError}</Error>}
       <Users>
         {users.map(user => (
-          <a href="teste" key={user.id}>
+          <Link to={`/user/${user.login}`} key={user.id}>
             <img src={user.avatar_url} alt="" />
             <div>
               <strong>{user.login}</strong>
               <p>{user.bio}</p>
             </div>
             <FiChevronRight size={20} />
-          </a>
+          </Link>
         ))}
       </Users>
     </>
