@@ -8,7 +8,7 @@ import logo from '../../assets/images/logo.svg';
 
 import { Title, Form, Users, Error } from './styles';
 
-interface IUsers {
+interface IUser {
   login: string;
   id: number;
   avatar_url: string;
@@ -20,7 +20,7 @@ interface IUsers {
 }
 
 const Dashboard: React.FC = () => {
-  const [users, setUsers] = useState<IUsers[]>(() => {
+  const [users, setUsers] = useState<IUser[]>(() => {
     const usersLocalStorage = localStorage.getItem('@GHE:users');
 
     if (usersLocalStorage) {
@@ -48,7 +48,7 @@ const Dashboard: React.FC = () => {
     }
 
     try {
-      const { data } = await api.get<IUsers>(`users/${newUser}`);
+      const { data } = await api.get<IUser>(`users/${newUser}`);
 
       setUsers([...users, data]);
       setNewUser('');
