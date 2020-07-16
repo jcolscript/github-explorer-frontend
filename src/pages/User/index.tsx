@@ -30,6 +30,7 @@ interface IRepository {
   id: number;
   name: string;
   description: string;
+  html_url: string;
 }
 
 const User: React.FC = () => {
@@ -89,13 +90,13 @@ const User: React.FC = () => {
 
       <Repositories>
         {repositories.map(repo => (
-          <Link to="aaaa" key={repo?.id}>
+          <a href={repo?.html_url} target="_blank" key={repo?.id}>
             <div>
               <strong>{repo?.name}</strong>
               <p>{repo?.description}</p>
             </div>
             <FiChevronRight size={20} />
-          </Link>
+          </a>
         ))}
       </Repositories>
     </>
