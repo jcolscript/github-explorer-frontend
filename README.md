@@ -1,8 +1,5 @@
 <h1 align="center">
 <br>
-  <img src="https://svgshare.com/i/JTF.svg" alt="logo" width="120">
-<br>
-<br>
 GitHub Explorer
 </h1>
 
@@ -10,7 +7,7 @@ GitHub Explorer
 
 <div>
   <p align="center">
-    <img src="https://i.imgur.com/SBmQ6iN.gif" alt="demo-web" width="800">
+    <img src="https://imgur.com/i0Vusnb.gif" alt="demo-web" width="800">
   <p align="center">
 </div>
 
