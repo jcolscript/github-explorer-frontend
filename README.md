@@ -1,44 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+<br>
+  <img src="https://svgshare.com/i/JTF.svg" alt="logo" width="120">
+<br>
+<br>
+GitHub Explorer
+</h1>
 
-## Available Scripts
+<p align="center">A React (typescript) application for explorering repositories in GitHub.</p>
 
-In the project directory, you can run:
+<div>
+  <p align="center">
+    <img src="https://i.imgur.com/SBmQ6iN.gif" alt="demo-web" width="800">
+  <p align="center">
+</div>
 
-### `yarn start`
+<hr />
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Recursos
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Este aplicativo apresenta todas as mais recentes ferramentas e práticas em desenvolvimento
 
-### `yarn test`
+- **React** — Uma biblioteca JavaScript para criar interfaces de usuário
+- **Axios** — Cliente HTTP baseado em promise para o navegador e node.js
+- **React Icons** — Utiliza imports ES6 para incluir ícones em seus projetos React.
+- **Polished** —
+  Um conjunto de ferramentas leve para escrever estilos em JavaScript.
+- **Eslint** — Encontra e corrija problemas no seu código JavaScript.
+- **Prettier** — Um formatador de código opinativo.
+- **Typescript** —
+  TypeScript é um superconjunto tipado de JavaScript que é compilado para JavaScript simples.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Começando
 
-### `yarn build`
+1. Clone este repositório usando `git clone https://github.com/jcolscript/github-explorer-frontend.git`
+2. Mova-se para o diretório apropriado: `cd github-explorer-frontend` <br />
+3. Renomear o arquivo .env.example para .env. e adicione o seu token do github (não obrigatorio mas limitante em relação aos requests) <br />
+4. Execute `yarn` para instalar as dependências <br />
+5. Execute `yarn start` para rodar a aplicação em modo de desenvolvimento
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Lint do projeto
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+1. Mova-se para o diretório apropriado: `cd github-explorer-frontend` <br />
+2. Execute `yarn lint` para encontrar e corrigir problemas no seu código.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Build do projeto
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Mova-se para o diretório apropriado: `cd github-explorer-frontend` <br />
+2. Execute `yarn build` para a concatenação e minificação de scripts e toda lógica de criação de bundle do Webpack.
+3. Basta enviar para o servidor o conteudo da /build
